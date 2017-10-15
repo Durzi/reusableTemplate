@@ -1,2 +1,77 @@
+@import "../partials/_base.sass"
+$unit: 1vh
+$bg2: green
+$color: #dcdcdc
+$pad: $unit
+
+
+
 .btn
-  width: 100%
+  position: relative
+  margin: .25em
+  padding: $pad * 2
+  width: 8em
+  color: $color
+  background: $bg2
+  +cutCornerBg(true, false, false, true, .6em, $bg2)
+  background-size: 55% 55%
+  background-repeat: no-repeat
+  border: none
+  z-index: 1
+  grid-column: span 3
+  box-shadow: -.5em 1em 1em -.7em rgba(0, 0, 0, .5)
+  transition: all 500ms ease
+  border-radius: .1em
+
+  &:active
+    outline: none
+  &:focus
+    outline: none
+  &:hover
+    color: $bg2
+    transform: translateY(.1em)
+    box-shadow: -.5em .8em 1em -.7em rgba(0, 0, 0, .5)
+
+  &:after
+    content: ""
+    width: 0%
+    height: 100%
+    position: absolute
+    top: 0
+    +cutCornerBg(true, false, false, true, .6em, transparent)
+    background-size: 55% 55%
+    background-repeat: no-repeat
+    transition: all 500ms ease-in-out
+    z-index: -1
+    opacity: 0
+
+  &:hover:after
+    opacity: 1
+    width: 100%
+    +cutCornerBg(true, false, false, true, .6em, lightgreen)
+    background-size: 55% 55%
+    background-repeat: no-repeat
+
+.one
+  &:after
+    left: 0
+.two
+  &:after
+    right: 0
+
+.three
+  overflow: hidden
+  &:after
+    left: 0
+    transform: translateY(-100%)
+  &:hover:after
+    transform: translateY(0%)
+
+.four
+  overflow: hidden
+  &:after
+    right: 0
+    bottom: 0
+    transform: translateY(100%)
+  &:hover:after
+    transform: translateY(0%)

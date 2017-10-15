@@ -1,0 +1,75 @@
+//Color
+$mainColor: #EDE5D0
+$secondColor: #435F2E
+$thirdColor: #BAE4E4
+$mainAlpha: rgba(237, 229, 208, .6)
+$secondAlpha: rgba(67, 95, 46, .6)
+$thirdAlpha: rgba(186, 228, 228, .6)
+
+//Background
+$mainBg: linear-gradient(-45deg, $mainColor, $thirdColor)
+$blurBg: $mainColor
+
+
+//Font Styles
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+$family: "Josefin Sans", sans-serif
+$pSize: 1.2em
+$mainHead: 2em
+$navFontSize: 1.3em
+
+//Margins
+$marginTop: 70px
+$blurbSides: .5em
+$pIndent: 1em
+
+//Padding
+$pPadding: 1em
+
+//Box Shadows
+$blurShadow: inset 0 0 1em $mainColor
+$navShadow: 0 0 10px $secondColor
+
+//Text Shadows
+
+//Border
+$blurbShadow: -50px 50px 30px -40px rgba(100,100,100,0.5)
+
+//Border radius
+$radius: 1em
+
+
+//Mixin
+
+//TopLeft= bottom left=45deg, top left=135deg, top right=225deg, bottom right=315
+left or right
+=cutCornerBg($l, $r, $bl, $br, $size, $color)
+  $left: null
+  $right: null
+  $bLeft: null
+  $bRight: null
+
+  @if $l == true
+    $left: linear-gradient(135deg, transparent $size, $color 0) top left
+  @else
+    $left: linear-gradient(135deg, $color 0, $color 0) top left
+
+
+  @if $r == true
+    $right: linear-gradient(225deg, transparent $size, $color 0) top right
+  @else
+    $right: linear-gradient(225deg, $color 0, $color 0) top right
+
+
+  @if $bl == true
+    $bLeft: linear-gradient(45deg, transparent $size, $color 0) bottom left
+  @else
+    $bLeft: linear-gradient(45deg, $color 0, $color 0) bottom left
+
+
+  @if $br == true
+    $bRight: linear-gradient(315deg, transparent $size, $color 0) bottom right
+  @else
+    $bRight: linear-gradient(315deg, $color 0, $color 0) bottom right
+
+  background: unquote("#{$left}, #{$right}, #{$bLeft}, #{$bRight}")

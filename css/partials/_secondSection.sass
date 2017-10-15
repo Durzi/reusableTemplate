@@ -1,0 +1,141 @@
+#secondSection
+    margin: auto
+    width: 100%
+    height: 100vh
+    background: url("../img/placeholder-eight.jpeg")
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+
+    .overlay
+      width: 100%
+      height: 100%
+      background: $secondAlpha
+
+      display: grid
+      grid-template-columns: repeat(11, 1fr)
+      grid-template-rows: 15% 80%
+      grid-gap: $blurbSides
+      justify-items: center
+      align-items: center
+      justify-content: center
+
+      .sectionHeader
+        grid-column-start: 2
+        grid-column-end: span 9
+        align-self: end
+
+      .threeColumn
+        min-height: 60%
+        border-radius: $radius
+
+        align-self: center
+        display: grid
+        h2
+          font-size: 1.8em
+          align-self: center
+        p
+          line-height: 1.1
+          align-self: start
+
+      .threeColumn:nth-child(2)
+        grid-column-start: 2
+        grid-column-end: span 3
+        +cutCornerBg(false, true, false, true, 2em, $blurBg)
+        background-size: 51% 51%
+        background-repeat: no-repeat
+
+      .threeColumn:nth-child(3)
+        grid-column-start: 5
+        grid-column-end: span 3
+        +cutCornerBg(true, true, true, true, 2em, $blurBg)
+        background-size: 51% 51%
+        background-repeat: no-repeat
+
+      .threeColumn:nth-child(4)
+        grid-column-start: 8
+        grid-column-end: span 3
+        +cutCornerBg(true, false, true, false, 2em, $blurBg)
+        background-size: 51% 51%
+        background-repeat: no-repeat
+
+
+//Responsive
+@media (max-width: 1150px)
+  #secondSection
+    .overlay
+      grid-template-columns: repeat(12, 1fr)
+      .sectionHeader
+        grid-column-start: 1
+        grid-column: span 12
+      .threeColumn
+        height: 65%
+      .threeColumn:nth-child(2)
+        margin-left: $blurbSides
+        grid-column-start: 1
+        grid-column: span 4
+      .threeColumn:nth-child(3)
+        grid-column-start: 5
+        grid-column: span 4
+      .threeColumn:nth-child(4)
+        margin-right: $blurbSides
+        grid-column-start: 9
+        grid-column: span 4
+
+@media (max-width: 900px)
+  #secondSection
+    .overlay
+      grid-template-rows: repeat(4, 1fr)
+      .sectionHeader
+        align-self: center
+        h1
+          font-size: 1.5em
+      .threeColumn
+        height: 80%
+        h2
+          font-size: 1.2em
+        p
+          font-size: .9em
+        &:nth-child(2)
+          margin-left: .25em
+          margin-right: .25em
+          grid-column-start: 2
+          grid-column-end: span 10
+        &:nth-child(3)
+          grid-column-start: 2
+          grid-column-end: span 10
+        &:nth-child(4)
+          margin-right: .25em
+          margin-left: .25em
+          grid-column-start: 2
+          grid-column-end: span 10
+
+@media (max-width: 600px)
+  #secondSection
+    .overlay
+      .sectionHeader
+        h1
+          font-size: 1.2em
+      .threeColumn
+        margin: 0 .25em
+        &:nth-child(2)
+          grid-column-start: 1
+          grid-column-end: span 12
+        &:nth-child(3)
+          grid-column-start: 1
+          grid-column-end: span 12
+        &:nth-child(4)
+          grid-column-start: 1
+          grid-column-end: span 12
+
+@media (max-width: 470px)
+  #secondSection
+    .overlay
+      .sectionHeader
+        h1
+          font-size: 1.2em
+      .threeColumn
+        h2
+          font-size: 1em
+        p
+          font-size: .8em

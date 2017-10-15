@@ -1,0 +1,148 @@
+#thirdSection
+  margin: auto
+  width: 100%
+  height: 100vh
+  background: url("../img/placeholder-eleven.jpeg")
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+  .overlay
+    width: 100%
+    height: 100%
+    background: $thirdAlpha
+
+    display: grid
+    grid-template-rows: 15% 80%
+
+    .sectionHeader
+      align-self: end
+    #myGrid
+      margin: auto
+      width: 70%
+      height: 70%
+
+      display: grid
+      grid-template-columns: repeat(8, 1fr)
+      grid-template-rows: repeat(5, 1fr)
+      grid-gap: .5em
+      .item
+        background: $blurBg
+        overflow: hidden
+
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+          background-size: cover
+          background-repeat: no-repeat
+          background-position: center
+          transition: all 300ms ease-in-out
+          opacity: .8
+          &:hover
+            opacity: 1
+            transform: scale(.5)
+
+      .small
+        grid-row: span 1
+        grid-column: span 1
+      .medium
+        grid-row: span 2
+        grid-column: span 2
+      .large
+        grid-row: span 3
+        grid-column: span 3
+      .wide
+        grid-column: span 3
+      .tall
+        grid-row: span 3
+
+//Popup Modal
+.modal
+  display: none
+  position: fixed
+  top: 0
+  margin: auto
+  width: 100%
+  height: 100vh
+  justify-content: center
+  #closeModal
+    font-size: 4em
+    font-weight: bolder
+    position: absolute
+    left: 95%
+    top: 0
+    z-index: 201
+    cursor: pointer
+    transition: all 300ms ease
+    &:hover
+      color: #dcdcdc
+  img
+    margin: auto
+    width: 95vw /* 95% of viewport */
+    height: 53.43vw /* ratio = 9/16 * 95 = 53.4375 */
+    max-width: 168.88vh /* 16/9 * 95 = 168.88 */
+    max-height: 95vh
+    background-position: center
+    background-repeat: no-repeat
+    z-index: 200
+    align-self: center
+
+.blurSection
+  filter: blur(4px)
+
+.modal-open
+  overflow: hidden
+  position: absolute
+
+//Responsive
+@media (max-width: 800px)
+  #thirdSection
+    .overlay
+      .sectionHeader
+        h1
+          font-size: 1.5em
+      #myGrid
+        width: 95%
+        height: 95%
+        grid-template-columns: repeat(12, 1fr)
+        grid-template-rows: repeat(10, 1fr)
+        .item
+        .small
+          grid-row: span 3
+          grid-column: span 4
+        .medium
+          grid-row: span 4
+          grid-column: span 4
+        .large
+          grid-row: span 5
+          grid-column: span 4
+        .tall
+          grid-row: span 3 !important
+        .wide
+          grid-column: span  4 !important
+          grid-row: span 3 !important
+
+@media (max-width: 500px)
+  #thirdSection
+    .overlay
+      .sectionHeader
+      #myGrid
+        margin: 0 .25em
+        width: 100%
+        height: 100%
+        grid-template-rows: repeat(12, 1fr)
+        .item
+        .small
+          grid-column: span 6
+          grid-row: span 3
+        .medium
+          grid-column: span 6
+          grid-row: span 3
+        .large
+          grid-column: span 6
+          grid-row: span 3
+        .tall
+        .wide
+          grid-column: span 6 !important

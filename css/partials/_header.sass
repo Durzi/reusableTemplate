@@ -1,0 +1,203 @@
+#header
+  position: relative
+  margin: auto
+  width: 100%
+  height: 100vh
+  background: url("../img/placeholder-six.jpeg")
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+
+  .overlay
+    width: 100%
+    height: 100%
+    background: $mainAlpha
+
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    grid-template-rows: 30% 50%
+    grid-column-gap: 1em
+    justify-items: center
+
+    #logo
+      position: fixed
+      left: 0
+      top: 0
+      margin-top: $marginTop
+      margin-left: $marginTop
+      cursor: pointer
+      width: 4.5vw
+      min-width: 50px
+      height: 4.5vw
+      min-height: 50px
+      background: $mainBg
+      border-radius: 50%
+      display: flex
+      justify-content: center
+      align-items: center
+      justify-self: start
+      z-index: 0
+
+      &:hover
+        opacity: .8
+
+      img
+        width: 3.5vw
+        min-width: 40px
+        height: auto
+
+    .sectionHeader
+      margin-top: $marginTop - 1.5
+      grid-column-start: 2
+      grid-column-end: span 4
+
+    //Might remove this entire nav
+    #nav
+      position: fixed
+      top: 0
+      right: 0
+      margin-top: $marginTop
+      margin-right: $marginTop
+      justify-self: end
+      z-index: 0
+
+      #menuIcon
+        padding: 10px
+        width: 3.4vw
+        height: 3.4vw
+        min-width: 30px
+        min-height: 30px
+        background: $mainBg
+        border-radius: 50%
+        cursor: pointer
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        transition: all 300ms ease
+        z-index: 199
+
+        &:hover
+          opacity: .8
+          transform: scale(.9)
+
+        span
+          margin-bottom: .3em
+          width: 100%
+          height: 6px
+          display: block
+          background: #000
+          border-radius: 5px
+          transition: all 500ms ease;
+          transform-origin: 50% 50%
+
+      ul
+        margin: 0
+        padding: 0
+        width: 100%
+        line-height: 50px
+        position: fixed
+        top: 0
+        left: 0
+        list-style: none
+        background: $mainBg
+        box-shadow: $navShadow
+
+        transition: 500ms all ease-in-out;
+        transform-origin: 100% 0%
+        transform: rotateX(90deg)
+
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        justify-items: center
+
+        li
+          a
+            font-family: $family
+            font-size: $navFontSize
+            color: $secondColor
+            padding: 14px
+            text-decoration: none
+            letter-spacing: 2px
+            border-bottom: 3px solid transparent
+
+            &:hover
+              font-weight: bolder
+              border-bottom: 3px solid $secondColor
+
+    .blurb
+      margin: auto $blurbSides
+      +cutCornerBg(true, false, false, true, 2em, $blurBg)
+      background-size: 51% 51%
+      background-repeat: no-repeat
+      border-radius: $radius
+      box-shadow: $blurbShadow
+      grid-column-start: 2
+      grid-column-end: span 4
+
+
+
+//Navigation class toggle
+.open
+  transform: rotateX(0deg) !important
+
+//Menu Icon class toggles
+.barOne
+  margin-bottom: -6px !important
+  transform: rotate(-45deg)
+
+.barTwo
+  display: none !important
+
+.barThree
+  margin-bottom: 0 !important
+  transform: rotate(45deg)
+
+
+//Responsive
+@media (max-width: 790px)
+  #header
+    .overlay
+      #logo
+        margin-left: $marginTop / 2
+
+      #nav
+        margin-right: $marginTop / 2
+
+      .sectionHeader
+        font-size: $mainHead - .6
+
+      .blurb
+        grid-column-start: 1
+        grid-column-end: span 6
+
+//Responsive
+@media (max-width: 550px)
+  #header
+    .overlay
+      #logo
+        margin-left: ($marginTop / 2) - 15
+
+      #nav
+        margin-right: ($marginTop / 2) - 15
+
+        ul
+          li
+            a
+              font-size: $navFontSize - .2
+
+      .sectionHeader
+        font-size: $mainHead - 1
+
+
+//Responsive
+@media (max-width: 430px)
+  #header
+    .overlay
+      grid-template-rows: 20% 50%
+      #logo
+        margin-left: ($marginTop / 2) - 20
+
+      #nav
+        margin-right: ($marginTop / 2) - 20
