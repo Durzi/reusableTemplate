@@ -16,7 +16,7 @@
     grid-template-rows: 15% 80%
 
     .sectionHeader
-      align-self: end
+      align-self: center
     #myGrid
       margin: auto
       width: 70%
@@ -68,7 +68,7 @@
   height: 100vh
   justify-content: center
   #closeModal
-    font-size: 4em
+    font-size: 3em
     font-weight: bolder
     position: absolute
     left: 95%
@@ -124,10 +124,12 @@
           grid-column: span  4 !important
           grid-row: span 3 !important
 
-@media (max-width: 500px)
+@media (max-width: 580px)
   #thirdSection
     .overlay
       .sectionHeader
+        h1
+          font-size: $h1 - 1.2
       #myGrid
         margin: 0 .25em
         width: 100%

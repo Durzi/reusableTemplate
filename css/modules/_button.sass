@@ -1,16 +1,16 @@
 @import "../partials/_base.sass"
-$unit: 1vh
-$bg2: green
-$color: #dcdcdc
-$pad: $unit
+$bg2: $secondColor
+$color: $mainColor
+
 
 
 
 .btn
   position: relative
   margin: .25em
-  padding: $pad * 2
-  width: 8em
+  padding: .8em
+  width: 7em
+  height: 2.5em
   color: $color
   background: $bg2
   +cutCornerBg(true, false, false, true, .6em, $bg2)
@@ -18,10 +18,10 @@ $pad: $unit
   background-repeat: no-repeat
   border: none
   z-index: 1
-  grid-column: span 3
-  box-shadow: -.5em 1em 1em -.7em rgba(0, 0, 0, .5)
+  box-shadow: -.5em .8em 1em -.7em rgba(0, 0, 0, .5)
   transition: all 500ms ease
   border-radius: .1em
+  font-size: .8em
 
   &:active
     outline: none
@@ -30,7 +30,7 @@ $pad: $unit
   &:hover
     color: $bg2
     transform: translateY(.1em)
-    box-shadow: -.5em .8em 1em -.7em rgba(0, 0, 0, .5)
+    box-shadow: -.5em .6em 1em -.7em rgba(0, 0, 0, .5)
 
   &:after
     content: ""
@@ -75,3 +75,8 @@ $pad: $unit
     transform: translateY(100%)
   &:hover:after
     transform: translateY(0%)
+
+//Responsive
+@media (max-width: 580px)
+  .btn
+    font-size: .6em

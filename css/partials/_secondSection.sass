@@ -12,130 +12,139 @@
       height: 100%
       background: $secondAlpha
 
-      display: grid
-      grid-template-columns: repeat(11, 1fr)
-      grid-template-rows: 15% 80%
-      grid-gap: $blurbSides
-      justify-items: center
-      align-items: center
-      justify-content: center
-
       .sectionHeader
-        grid-column-start: 2
-        grid-column-end: span 9
-        align-self: end
+        padding: $pPadding 0
 
-      .threeColumn
-        min-height: 60%
-        border-radius: $radius
+      #flex
+        margin: auto
+        width: 80%
+        height: 90vh
+        display: flex
+        justify-content: center
+        align-items: center
 
-        align-self: center
-        display: grid
-        h2
-          font-size: 1.8em
-          align-self: center
-        p
-          line-height: 1.1
-          align-self: start
+        .threeColumn
+          margin: .25em
+          padding: $pPadding
+          min-height: 40vh
+          border-radius: $radius
+          transition: all 500ms ease-in-out
 
-      .threeColumn:nth-child(2)
-        grid-column-start: 2
-        grid-column-end: span 3
-        +cutCornerBg(false, true, false, true, 2em, $blurBg)
-        background-size: 51% 51%
-        background-repeat: no-repeat
+          h2
+            font-size: 1.8em
+          p
+            line-height: 1.1
 
-      .threeColumn:nth-child(3)
-        grid-column-start: 5
-        grid-column-end: span 3
-        +cutCornerBg(true, true, true, true, 2em, $blurBg)
-        background-size: 51% 51%
-        background-repeat: no-repeat
+        .threeColumn:nth-child(1)
+          +cutCornerBg(false, true, false, true, 2em, $blurBg)
+          background-size: 51% 51%
+          background-repeat: no-repeat
 
-      .threeColumn:nth-child(4)
-        grid-column-start: 8
-        grid-column-end: span 3
-        +cutCornerBg(true, false, true, false, 2em, $blurBg)
-        background-size: 51% 51%
-        background-repeat: no-repeat
+        .threeColumn:nth-child(2)
+          +cutCornerBg(true, true, true, true, 2em, $blurBg)
+          background-size: 51% 51%
+          background-repeat: no-repeat
+
+        .threeColumn:nth-child(3)
+          +cutCornerBg(true, false, true, false, 2em, $blurBg)
+          background-size: 51% 51%
+          background-repeat: no-repeat
 
 
 //Responsive
-@media (max-width: 1150px)
+@media (max-width: 1250px)
   #secondSection
     .overlay
-      grid-template-columns: repeat(12, 1fr)
       .sectionHeader
-        grid-column-start: 1
-        grid-column: span 12
-      .threeColumn
-        height: 65%
-      .threeColumn:nth-child(2)
-        margin-left: $blurbSides
-        grid-column-start: 1
-        grid-column: span 4
-      .threeColumn:nth-child(3)
-        grid-column-start: 5
-        grid-column: span 4
-      .threeColumn:nth-child(4)
-        margin-right: $blurbSides
-        grid-column-start: 9
-        grid-column: span 4
+      #flex
+        width: 90%
 
-@media (max-width: 900px)
-  #secondSection
-    .overlay
-      grid-template-rows: repeat(4, 1fr)
-      .sectionHeader
-        align-self: center
-        h1
-          font-size: 1.5em
-      .threeColumn
-        height: 80%
-        h2
-          font-size: 1.2em
-        p
-          font-size: .9em
-        &:nth-child(2)
-          margin-left: .25em
-          margin-right: .25em
-          grid-column-start: 2
-          grid-column-end: span 10
-        &:nth-child(3)
-          grid-column-start: 2
-          grid-column-end: span 10
-        &:nth-child(4)
-          margin-right: .25em
-          margin-left: .25em
-          grid-column-start: 2
-          grid-column-end: span 10
-
-@media (max-width: 600px)
+@media (max-width: 1000px)
   #secondSection
     .overlay
       .sectionHeader
         h1
-          font-size: 1.2em
-      .threeColumn
-        margin: 0 .25em
-        &:nth-child(2)
-          grid-column-start: 1
-          grid-column-end: span 12
-        &:nth-child(3)
-          grid-column-start: 1
-          grid-column-end: span 12
-        &:nth-child(4)
-          grid-column-start: 1
-          grid-column-end: span 12
+          font-size: 1.5em
+      #flex
+        width: 100%
+        .threeColumn
+          h2
+            font-size: 1.2em
+          p
+            font-size: .9em
 
-@media (max-width: 470px)
+@media (max-width: 740px)
   #secondSection
     .overlay
       .sectionHeader
+        padding: .5em
         h1
           font-size: 1.2em
-      .threeColumn
-        h2
-          font-size: 1em
-        p
-          font-size: .8em
+      #flex
+        flex-direction: row
+        .threeColumn
+          margin: .25em
+          padding: .7em
+          min-height: auto
+          h2
+            font-size: 1em
+          p
+            font-size: .8em
+
+          &:nth-child(1)
+            +cutCornerBg(true, false, false, true, 1.3em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+          &:nth-child(2)
+            +cutCornerBg(true, false, false, true, 1.3em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+          &:nth-child(3)
+            +cutCornerBg(true, false, false, true, 1.3em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+
+@media (max-width: 680px)
+  #secondSection
+    .overlay
+      #flex
+        height: auto
+        .threeColumn
+          p
+            font-size: .7em
+
+@media (max-width: 580px)
+  #secondSection
+    .overlay
+      .sectionHeader
+        padding: .5em 0
+        h1
+          font-size: $h1 - 1.2
+      #flex
+        flex-direction: column
+        height: auto
+        .threeColumn
+          margin: .15em
+          padding: .2em
+          max-height: 36px
+          border-radius: .5em
+          overflow: hidden
+          h2
+            margin-top: .5em
+
+          &:nth-child(1)
+            +cutCornerBg(true, false, false, true, .7em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+          &:nth-child(2)
+            +cutCornerBg(true, false, false, true, .7em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+          &:nth-child(3)
+            +cutCornerBg(true, false, false, true, .7em, $blurBg)
+            background-size: 51% 51%
+            background-repeat: no-repeat
+
+
+.openSection
+  max-height: 400px !important
